@@ -11,7 +11,7 @@ function Quiz() {
 
   //   setting timer state
   // const [timeLeft, setTimeLeft] = useState(100);
-  const timeAllocated = 10;
+  const timeAllocated = 18;
   const [timeRemaining, setTimeRemaining] = useState(timeAllocated);
 
   useEffect(() => {
