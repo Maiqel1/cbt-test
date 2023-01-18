@@ -100,6 +100,13 @@ function Quiz() {
         setExamState("EndScreen");
       }
     } else {
+        let score = 0;
+        for (let i = 0; i < Questions.length; i++) {
+          if (answers[i] === Questions[i].answer) {
+            score++;
+          }
+        }
+        setScore(score)
       setExamState("EndScreen");
     }
   };
