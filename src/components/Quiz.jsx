@@ -11,6 +11,7 @@ function Quiz() {
   const [optionChosen, setOptionChosen] = useState("");
 
   //   setting timer state
+  // const [timeLeft, setTimeLeft] = useState(100);
   const timeAllocated = 10000;
   const [timeRemaining, setTimeRemaining] = useState(timeAllocated);
 
