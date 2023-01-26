@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+*{
+  font-family: 'IBM Plex Sans';
+
+}
+
 .navBar{
   background: rgba(11, 95, 255, 0.1);
 border-radius: 8px;
