@@ -1,33 +1,34 @@
-import "./App.css"
-import { useState , useContext } from "react";
-import MainMenu from "./components/MainMenu";
-import Quiz from "./components/Quiz";
-import EndScreen from "./components/EndScreen";
-
-import { QuizContext } from "./Context/QuizContext";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { QuizProvider } from "./Context/QuizContext";
+import Home from "./components/Home";
+import QuizLanding from "./components/QuizLanding";
+import Nav from "./components/Nav";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 function App() {
-
-  const [examState, setExamState] = useState("menu")
-  const [score, setScore] = useState(0)
-  
   return (
-    <div className="App">
-      <h1>Quiz App</h1>
+    <QuizProvider>
+      <Nav/>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home/>}>
 
-    <QuizContext.Provider
-     value={{
-      examState,
-       setExamState,
-       score,
-       setScore,
-      }}>
-    {examState === "menu" && <MainMenu/>}
-    {examState === "quiz" && <Quiz/>}
-    {examState === "EndScreen" && <EndScreen/>}
-    </QuizContext.Provider>
-    </div>
-      )
+          </Route>
+          <Route path="/register" element={<Register/>}>
+
+          </Route>
+          <Route path="/login" element={<Login/>}>
+
+          </Route>
+          <Route path="/quiz" element={<QuizLanding/>}>
+            
+            </Route>  
+      
+        </Routes>
+      </Router>
+    </QuizProvider>
+  );
 }
 
 export default App;

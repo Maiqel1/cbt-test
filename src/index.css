@@ -1,0 +1,203 @@
+.navBar{
+  background: rgba(11, 95, 255, 0.1);
+border-radius: 8px;
+
+}
+
+.header{
+width: 1160px;
+height: 641px;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../src/assets/img/Rectangle\ 2.png), #C4C4C4;
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.header-text{
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 150%;
+text-transform: uppercase;
+}
+
+.header-buttons button{
+/* padding: 16px 40px; */
+gap: 10px;
+font-size: 24px;
+width: 140px;
+height: 68px;
+border-radius: 12px;
+
+}
+
+.register-header{
+width: 1157.5px;
+height: 765px;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/img/register-bg.png );
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.register-card{
+  width: 568px;
+  height: 718px;                      
+background: #FFFFFF;
+box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+border-radius: 24px;
+}
+
+.register-card input{
+  /* width: 488px; */
+height: 64px;
+
+background: rgba(11, 95, 255, 0.1);
+border-radius: 8px;
+}
+
+.register-card label{
+  font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+color: #000000;
+}
+
+.instructions-card{
+
+width: 766px;
+height: 293px;
+background: rgba(11, 95, 255, 0.1);
+border-radius: 8px;
+}
+
+.instructions-card p {
+  font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+/* or 125% */
+
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+}
+
+.question-card{
+width: 1160px;
+height: 100%;
+background: rgba(11, 95, 255, 0.1);
+border-radius: 24px;
+}
+
+.prompt{
+  margin: 0px 50px;      
+  font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 150%;
+}
+
+.question-card input{
+  box-sizing: border-box;
+background: #0B5FFF !important;
+border: 1.49632px solid rgba(11, 95, 255, 0.5);
+border-radius: 23.9411px;
+}
+
+.question-card label{      
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 20px;
+color: #09101D;
+margin-left: 20px;
+margin-top: 10px;
+
+}
+
+.options{
+  margin: 0px 50px;
+}
+
+.nextPrev button {
+  text-transform: uppercase;
+}
+
+.question-navigation{
+  display: inline-block;
+  width: 60px;
+height: 60px;
+background: #20AE48;
+border-radius: 100%;
+margin: 20px 10px;
+
+
+}
+
+.question-navigation2{
+  display: inline-block;
+  width: 60px;
+height: 60px;
+border-radius: 100%;
+margin: 20px 10px;
+background: #D53434;
+
+}
+
+/* style = {{backgroundColor : answers[i + 1] ? 'green' : 'red', color: 'white', padding: '10px', cursor: 'pointer', display: 'inline-block'}} */
+
+
+
+  /* .Menu,
+  .Quiz,
+  .EndScreen
+  {
+    width: fit-content;
+    padding: 0px 20px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: lightseagreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Menu button, .Quiz button, .EndScreen button{
+    width: 300px;
+    height: 50px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .Menu, .Quiz, .EndScreen {
+    color: white;
+  }
+
+  .options{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nextPrev{
+    margin-top: 20px;
+    display: flex;
+  justify-content: space-between;
+  } */

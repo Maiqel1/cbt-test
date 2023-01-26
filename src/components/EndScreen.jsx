@@ -1,11 +1,11 @@
 import { useContext } from "react"
-import { QuizContext } from "../Context/QuizContext"
-import { Questions } from "../Question/QuestionBank";
+import  QuizContext  from "../Context/QuizContext"
+// import { Questions } from "../Question/QuestionBank";
 import "../App.css"
 
 function EndScreen() {
 
-  const {score, setScore, setExamState} = useContext(QuizContext);
+const {score, setScore, setExamState, Questions} = useContext(QuizContext);
 
   const restartQuiz = () => {
     setScore(0);

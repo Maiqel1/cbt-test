@@ -1,17 +1,17 @@
+/* eslint-disable */
+
 import { useState, useContext, useEffect } from "react";
-import { Questions } from "../Question/QuestionBank";
-import { QuizContext } from "../Context/QuizContext";
+// import { Questions } from "../Question/QuestionBank";
+import  QuizContext  from "../Context/QuizContext";
 
 function Quiz() {
-  const { score, setScore, setExamState } = useContext(QuizContext);
-
+  const {examState, Questions, answers, setAnswers, handleChange, finishQuiz } = useContext(QuizContext);
   // setting question and answer state
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState("");
 
   //   setting timer state
-  // const [timeLeft, setTimeLeft] = useState(100);
-  const timeAllocated = 10;
+  const timeAllocated = 10000;
   const [timeRemaining, setTimeRemaining] = useState(timeAllocated);
 
   useEffect(() => {
@@ -29,12 +29,13 @@ function Quiz() {
     }
   }, [timeRemaining]);
 
-  //   this state is to clear the radio inputs when next is clicked, and retain state when previous is clicked
-  const [answers, setAnswers] = useState({});
+  // function for navigation
+  const handleNavigation = (question) =>{
+    
+    setCurrentQuestion(question - 1);
+  }
 
-  const handleChange = (currentQuestion, optionChosen) => {
-    setAnswers({ ...answers, [currentQuestion]: optionChosen });
-  };
+  
 
   //   next question and score increment
   const nextQuestion = () => {
@@ -63,59 +64,16 @@ function Quiz() {
     // const prevAnswer = answers[currentQuestion - 1];
   };
 
-  //   code to submit quiz, needs work
-  //   const finishQuiz = () => {
-  //     // if (Questions[currentQuestion].answer === optionChosen) {
-  //     //   setScore(score + 1);
-  //     // }
-
-  //     setExamState("EndScreen");
-  //   };
-
-  // setting timer state
-
-  //   const finishQuiz = () => {
-  //     if (window.confirm("Are you sure you want to submit?")) {
-  //       let score = 0;
-  //       for (let i = 0; i < Questions.length; i++) {
-  //         if (answers[i] === Questions[i].answer) {
-  //           score++;
-  //         }
-  //       }
-  //       setScore(score);
-  //       setExamState("EndScreen");
-  //     }
-  //   };
-
-  const finishQuiz = (showPrompt = true) => {
-    if (showPrompt) {
-      if (window.confirm("Are you sure you want to submit?")) {
-        let score = 0;
-        for (let i = 0; i < Questions.length; i++) {
-          if (answers[i] === Questions[i].answer) {
-            score++;
-          }
-        }
-        setScore(score);
-        setExamState("EndScreen");
-      }
-    } else {
-        let score = 0;
-        for (let i = 0; i < Questions.length; i++) {
-          if (answers[i] === Questions[i].answer) {
-            score++;
-          }
-        }
-        setScore(score)
-      setExamState("EndScreen");
-    }
-  };
-
   return (
     <div className="Quiz">
-      <h1>
-        Time Left: {Math.floor(timeRemaining / 60)} : {timeRemaining % 60}
-      </h1>
+
+    <div className="d-flex justify-content-between container my-5">
+        <p>{currentQuestion + 1} of {Questions.length}</p>
+
+        <p className="text-danger">
+        {Math.floor(timeRemaining / 60)} : {timeRemaining % 60}
+      </p> 
+    </div>
 
       <div>
         {timeRemaining <= timeAllocated / 2 && (
@@ -123,13 +81,13 @@ function Quiz() {
         )}
       </div>
 
-      <h1>{Questions[currentQuestion].prompt}</h1>
+      <div className="question-card container p-5">
 
-      <div className="options">
-        {/* <button onClick={() => setOptionChosen("A")}>{Questions[currentQuestion].optionA}</button>
-            <button onClick={() => setOptionChosen("B")}>{Questions[currentQuestion].optionB}</button>
-            <button onClick={() => setOptionChosen("C")}>{Questions[currentQuestion].optionC}</button>
-            <button onClick={() => setOptionChosen("D")}>{Questions[currentQuestion].optionD}</button> */}
+        <section className="container mx-auto">
+
+      <h1 className="prompt">{Questions[currentQuestion].prompt}</h1>
+
+      <div className="options mt-3">
         <div>
           <input
             type="radio"
@@ -189,12 +147,25 @@ function Quiz() {
           <label htmlFor="optionD">{Questions[currentQuestion].optionD}</label>
         </div>
       </div>
-
-      <div className="nextPrev">
-        <button onClick={previousQuestion}>Previous Question</button>
-
-        <button onClick={nextQuestion}>Next Question</button>
+      </section>
       </div>
+
+      <div className="nextPrev mt-5 d-flex justify-content-between container">
+        <button className="btn btn-primary p-3" onClick={previousQuestion}>Previous Question</button>
+
+        <button className="btn btn-primary p-3  " onClick={nextQuestion}>Next Question</button>
+      </div>
+
+            <div className="container">
+              {Array.from({length : Questions.length}, (_, i)=> (
+                <div key={i + 1} onClick={() => handleNavigation(i + 1)}  className={answers[i] ? "question-navigation" : "question-navigation2"}>
+                    
+                    <p className="mt-3 ms-4 text-white">{i + 1}</p>
+                </div>
+              ))}
+            </div>
+
+                {console.log()}
     </div>
   );
 }
