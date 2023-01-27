@@ -1,5 +1,6 @@
 import nsbs from "../assets/img/nsbs.png";
 import unilorin from "../assets/img/unilorin.png";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -22,8 +23,12 @@ function Home() {
         </div>
 
         <div className="header-buttons d-flex justify-content-center mt-5">
+          <Link to={'/register'}>
           <button className="btn btn-outline-light me-3">Register</button>
+          </Link>
+          <Link to={'/login'}>
           <button className="btn btn-primary text-white ms-5">Login</button>
+          </Link>
         </div>
       </header>
     </>

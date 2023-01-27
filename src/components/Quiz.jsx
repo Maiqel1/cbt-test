@@ -5,15 +5,15 @@ import { useState, useContext, useEffect } from "react";
 import  QuizContext  from "../Context/QuizContext";
 
 function Quiz() {
-  const {examState, Questions, answers, setAnswers, handleChange, finishQuiz } = useContext(QuizContext);
+  const {examState, Questions, answers, setAnswers, handleChange, finishQuiz , timeAllocated, timeRemaining, setTimeRemaining } = useContext(QuizContext);
   // setting question and answer state
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState("");
 
   //   setting timer state
+
   // const [timeLeft, setTimeLeft] = useState(100);
-  const timeAllocated = 10000;
-  const [timeRemaining, setTimeRemaining] = useState(timeAllocated);
+  
 
   useEffect(() => {
     let intervalId = setInterval(() => {
@@ -36,16 +36,8 @@ function Quiz() {
     setCurrentQuestion(question - 1);
   }
 
-  
-
   //   next question and score increment
   const nextQuestion = () => {
-    // theres a flaw here, score increments once answer is picked, and doesnt reduce when answer is changed to incorrect one.
-    // possible fix? disable previous question button(not very feasible)
-    // alternatively,move score increment to finish quiz function
-    // if (Questions[currentQuestion].answer === optionChosen) {
-    //   setScore(score + 1);
-    // }
     // this condition returns the user to the first question when he clicks "next question" while on the last question
     if (currentQuestion === Questions.length - 1) {
       setCurrentQuestion(0);
@@ -68,8 +60,8 @@ function Quiz() {
   return (
     <div className="Quiz">
 
-    <div className="d-flex justify-content-between container my-5">
-        <p>{currentQuestion + 1} of {Questions.length}</p>
+    <div className="d-flex justify-content-between container my-4">
+        <p>Question : {currentQuestion + 1} {"/"} {Questions.length}</p>
 
         <p className="text-danger">
         {Math.floor(timeRemaining / 60)} : {timeRemaining % 60}
@@ -77,9 +69,7 @@ function Quiz() {
     </div>
 
       <div>
-        {timeRemaining <= timeAllocated / 2 && (
-          <button onClick={finishQuiz}>Finish Quiz</button>
-        )}
+        
       </div>
 
       <div className="question-card container p-5">
@@ -159,14 +149,13 @@ function Quiz() {
 
             <div className="container">
               {Array.from({length : Questions.length}, (_, i)=> (
-                <div key={i + 1} onClick={() => handleNavigation(i + 1)}  className={answers[i] ? "question-navigation" : "question-navigation2"}>
+                <div key={i + 1} onClick={() => handleNavigation(i + 1)}  className={i === currentQuestion ? 'active-question' : answers[i] ? "question-navigation" : "question-navigation2"}>
                     
                     <p className="mt-3 ms-4 text-white">{i + 1}</p>
                 </div>
               ))}
             </div>
 
-                {console.log()}
     </div>
   );
 }

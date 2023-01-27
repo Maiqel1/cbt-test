@@ -41,6 +41,9 @@ export const QuizProvider = ({ children }) => {
     },
   ];
 
+  const timeAllocated = 60;
+  const [timeRemaining, setTimeRemaining] = useState(timeAllocated);
+
 
   //   this state is to clear the radio inputs when next is clicked, and retain state when previous is clicked
   const [answers, setAnswers] = useState({});
@@ -89,6 +92,9 @@ const finishQuiz = (showPrompt = true) => {
         answers,
         setAnswers,
         handleChange,
+        timeAllocated,
+        timeRemaining,
+        setTimeRemaining,
 
       }}
     >
