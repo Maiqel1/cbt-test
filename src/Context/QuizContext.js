@@ -56,7 +56,7 @@ export const QuizProvider = ({ children }) => {
   },
   {
     course: "plb101",
-    prompt: "How many continents are there in the world?",
+    prompt: "Plb 101 question",
     optionA: "5",
     optionB: "7",
     optionC: "8",
@@ -65,13 +65,41 @@ export const QuizProvider = ({ children }) => {
   },
   {
     course: "plb101",
-    prompt: "How many continents are there in the world?",
+    prompt: "plb 101 question",
     optionA: "5",
     optionB: "7",
     optionC: "8",
     optionD: "6",
     answer: "B",
-  },]
+  },
+  {
+    course: "zly101",
+    prompt: "Zly 101 question",
+    optionA: "5",
+    optionB: "7",
+    optionC: "8",
+    optionD: "6",
+    answer: "B",
+  },
+  {
+    course: "zly101",
+    prompt: "Zly 101 question",
+    optionA: "5",
+    optionB: "7",
+    optionC: "8",
+    optionD: "6",
+    answer: "B",
+  },
+  {
+    course: "zly101",
+    prompt: "Zly 101 question",
+    optionA: "5",
+    optionB: "7",
+    optionC: "8",
+    optionD: "6",
+    answer: "B",
+  },
+]
 
   const [Questions, setQuestions] = useState([]);
 

@@ -13,16 +13,6 @@ function StartScreen() {
     setSelectedCourse,
   } = useContext(QuizContext);
 
-  console.log(selectedCourse)
-
-  //   const selectedCourseData = courses.find((course) => course.id === selectedCourse);
-  // if (selectedCourseData) {
-  //   setQuestions(selectedCourseData.questions);
-  // } else {
-  //   console.error("Selected course not found in courses list.");
-  // }
-
-
   return (
     <div className="Start ">
       <h2 className="text-center my-4">General Instructions</h2>
@@ -52,7 +42,7 @@ function StartScreen() {
         </section>
       </div>
 
-      <div className=" container d-flex justify-content-center">
+      <div className=" container d-flex justify-content-center mt-4">
 
         {courses.map((course) => (
           <div className="mx-4" key={course.id}>
