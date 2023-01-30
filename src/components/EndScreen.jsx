@@ -1,16 +1,24 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import  QuizContext  from "../Context/QuizContext"
 // import { Questions } from "../Question/QuestionBank";
 import "../App.css"
 
 function EndScreen() {
 
-const {score, setScore, setExamState, Questions} = useContext(QuizContext);
+const {score, setScore, setExamState, Questions, setTimeRemaining, setAnswers, timeAllocated, completedCourses, setCompletedCourses, selectedCourse, setCurrentQuestion} = useContext(QuizContext);
+
+if (!completedCourses.includes(selectedCourse)) {
+  setCompletedCourses([...completedCourses, selectedCourse]);
+}
+
 
   const restartQuiz = () => {
+    setTimeRemaining(timeAllocated);
+    setAnswers([]);
     setScore(0);
     setExamState('menu')
   }
+
 
   return (
     <div className="EndScreen">
