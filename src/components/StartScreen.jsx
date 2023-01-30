@@ -1,4 +1,4 @@
-import { useContext,} from "react";
+import { useContext, } from "react";
 import QuizContext from "../Context/QuizContext";
 import "../App.css";
 
@@ -13,12 +13,14 @@ function StartScreen() {
     setSelectedCourse,
   } = useContext(QuizContext);
 
-//   const selectedCourseData = courses.find((course) => course.id === selectedCourse);
-// if (selectedCourseData) {
-//   setQuestions(selectedCourseData.questions);
-// } else {
-//   console.error("Selected course not found in courses list.");
-// }
+  console.log(selectedCourse)
+
+  //   const selectedCourseData = courses.find((course) => course.id === selectedCourse);
+  // if (selectedCourseData) {
+  //   setQuestions(selectedCourseData.questions);
+  // } else {
+  //   console.error("Selected course not found in courses list.");
+  // }
 
 
   return (
@@ -51,12 +53,12 @@ function StartScreen() {
       </div>
 
       <div className=" container d-flex justify-content-center">
-        
+
         {courses.map((course) => (
           <div className="mx-4" key={course.id}>
             <label htmlFor={course.name}>{course.name}</label>
             <input
-            key={course.id}
+              key={course.id}
               type="radio"
               id={course.name}
               value={course.id}
@@ -78,11 +80,14 @@ function StartScreen() {
                   "You have already completed this course. Please select a different course."
                 );
               } else {
+
                 setQuestions(
                   courses.find((course) => course.id === selectedCourse)
                     .questions
                 );
-                setExamState("quiz");
+                setTimeout(() => {
+                  setExamState("quiz");
+                }, 100)
               }
             } else {
               alert("Please select a course");
