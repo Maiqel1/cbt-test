@@ -19,13 +19,14 @@ function Quiz() {
   // setting question and answer state
   const [optionChosen, setOptionChosen] = useState("");
 
+  console.log(Questions, currentQuestion)
+
   // const [timeLeft, setTimeLeft] = useState(100);
 
   useEffect(() => {
     let intervalId = setInterval(() => {
       setTimeRemaining(timeRemaining - 1);
     }, 1000);
-
     return () => clearInterval(intervalId);
   }, [timeRemaining]);
 
@@ -81,7 +82,6 @@ function Quiz() {
           {Questions[currentQuestion] && (
             <h1 className="prompt">{Questions[currentQuestion].prompt}</h1>
           )}
-          {console.log(Questions)}
 
           {Questions[currentQuestion] && (
             <div className="options mt-3">
@@ -175,8 +175,8 @@ function Quiz() {
               i === currentQuestion
                 ? "active-question"
                 : answers[i]
-                ? "question-navigation"
-                : "question-navigation2"
+                  ? "question-navigation"
+                  : "question-navigation2"
             }
           >
             <p className="mt-3 ms-4 text-white">{i + 1}</p>
