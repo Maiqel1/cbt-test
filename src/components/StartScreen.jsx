@@ -1,4 +1,4 @@
-import { useContext, } from "react";
+import { useContext, useEffect, } from "react";
 import QuizContext from "../Context/QuizContext";
 import "../App.css";
 
@@ -11,8 +11,12 @@ function StartScreen() {
     completedCourses,
     setQuestions,
     setSelectedCourse,
+    setCurrentQuestion
   } = useContext(QuizContext);
 
+useEffect(() => {
+  setCurrentQuestion(0)
+}, [])
   return (
     <div className="Start ">
       <h2 className="text-center my-4">General Instructions</h2>

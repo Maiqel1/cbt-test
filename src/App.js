@@ -5,6 +5,7 @@ import QuizLanding from "./components/QuizLanding";
 import Nav from "./components/Nav";
 import Register from "./components/Register";
 import Login from "./components/Login";
+// import Results from "./components/Results";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           <Route path="/quiz" element={<QuizLanding/>}>
             
             </Route>  
+              {/* <Route path="/results" element={<Results/>}>
+
+              </Route> */}
       
         </Routes>
       </Router>

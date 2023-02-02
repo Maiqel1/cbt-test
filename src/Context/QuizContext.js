@@ -126,7 +126,7 @@ export const QuizProvider = ({ children }) => {
     },
   ]
 
-  console.log(courses)
+  // console.log(courses)
 
   const [timeAllocated, setTimeAllocated] = useState(30);
   const [timeRemaining, setTimeRemaining] = useState(timeAllocated);
@@ -163,6 +163,7 @@ export const QuizProvider = ({ children }) => {
     }
   };
 
+  
   return (
     <QuizContext.Provider
       value={{

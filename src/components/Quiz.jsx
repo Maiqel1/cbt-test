@@ -1,6 +1,7 @@
 
 import { useState, useContext, useEffect } from "react";
 import QuizContext from "../Context/QuizContext";
+// import axios from "axios" 
 
 function Quiz() {
   const {
@@ -19,7 +20,7 @@ function Quiz() {
   // setting question and answer state
   const [optionChosen, setOptionChosen] = useState("");
 
-  console.log(Questions, currentQuestion)
+  // console.log(Questions, currentQuestion)
 
   // const [timeLeft, setTimeLeft] = useState(100);
 
@@ -36,6 +37,7 @@ function Quiz() {
       finishQuiz(false);
     }
   }, [timeRemaining]);
+  
 
   // function for navigation
   const handleNavigation = (question) => {
