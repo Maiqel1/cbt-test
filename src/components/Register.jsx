@@ -77,7 +77,7 @@ function Register() {
                   generated_password: "",
                   password: "",
                 });
-              }, 5000);
+              }, 15000);
             } else {
               setRegistrationErrors(resData.non_field_errors);
               setRegistrationSuccess(null);
