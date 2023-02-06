@@ -17,9 +17,7 @@ function StartScreen() {
     setSelectedCourse,
     setCurrentQuestion
   } = useContext(QuizContext);
-
-  const [currentCourseID, setCurrentCourseID] = useState(null)
-
+  
   useEffect(() => {
     setCurrentQuestion(0)
 
@@ -35,8 +33,6 @@ function StartScreen() {
     axios.get(url + CourseID, { headers: { "Authorization": token } }) 
       .then((res) => {
         setQuestions(res.data)
-        // setTimeAllocated(courses.duration)
-        console.log(courses.duration)
         setExamState("quiz");
       })
       .catch(err => {

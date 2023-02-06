@@ -95,7 +95,7 @@ function Quiz() {
         <section className="container mx-auto">
           {Questions[currentQuestion] && (
             // <h1 className="prompt"></h1>
-            <ReactQuill  theme="snow" value={Questions[currentQuestion].question} modules={modules} formats={formats} className="my-quill-editor" readOnly/>
+            <ReactQuill  theme="snow" value={Questions[currentQuestion].question} modules={modules} formats={formats} className="my-quill-editor  " readOnly/>
           )}
 
           {Questions[currentQuestion] && (
@@ -103,7 +103,7 @@ function Quiz() {
               {
                 Questions[currentQuestion].option.map((option, ind) => {
                   return (
-                    <div key={ind} className="d-flex">
+                    <div key={ind} className="d-flex mt-n5 ">
                       <input
                       className="mt-5"
                         type="radio"
