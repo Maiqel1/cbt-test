@@ -9,126 +9,28 @@ export const QuizProvider = ({ children }) => {
   const [completedCourses, setCompletedCourses] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  const qs = [{
-    course: "chm101",
-    prompt: "What is 1 + 3",
-    optionA: "24",
-    optionB: "14",
-    optionC: "2",
-    optionD: "4",
-    answer: "D",
-  },
-  {
-    course: "chm101",
-    prompt: "Which of these is the first element on the periodic table?",
-    optionA: "hydrogen",
-    optionB: "oxygen",
-    optionC: "carbon",
-    optionD: "magnesium",
-    answer: "A",
-  },
-  {
-    course: "chm101",
-    prompt: "All life forms are made up of?",
-    optionA: "metal",
-    optionB: "carbon",
-    optionC: "wood",
-    optionD: "paper",
-    answer: "B",
-  },
-  {
-    course: "chm101",
-    prompt: "Which of these is a streaming platform?",
-    optionA: "twitch",
-    optionB: "facebook",
-    optionC: "whatsapp",
-    optionD: "twitter",
-    answer: "A",
-  },
-  {
-    course: "chm101",
-    prompt: "How many continents are there in the world?",
-    optionA: "5",
-    optionB: "7",
-    optionC: "8",
-    optionD: "6",
-    answer: "B",
-  },
-  {
-    course: "plb101",
-    prompt: "Plb 101 question",
-    optionA: "5",
-    optionB: "7",
-    optionC: "8",
-    optionD: "6",
-    answer: "B",
-  },
-  {
-    course: "plb101",
-    prompt: "plb 101 question",
-    optionA: "5",
-    optionB: "7",
-    optionC: "8",
-    optionD: "6",
-    answer: "B",
-  },
-  {
-    course: "zly101",
-    prompt: "Zly 101 question",
-    optionA: "5",
-    optionB: "7",
-    optionC: "8",
-    optionD: "6",
-    answer: "B",
-  },
-  {
-    course: "zly101",
-    prompt: "Zly 101 question",
-    optionA: "5",
-    optionB: "7",
-    optionC: "8",
-    optionD: "6",
-    answer: "B",
-  },
-  {
-    course: "zly101",
-    prompt: "Zly 101 question",
-    optionA: "5",
-    optionB: "7",
-    optionC: "8",
-    optionD: "6",
-    answer: "B",
-  },
-  ]
-
   const [Questions, setQuestions] = useState([]);
-
-  const chemQuestions = qs.filter(question => question.course === "chm101");
-  const plbQuestions = qs.filter(question => question.course === "plb101");
-  const zlyQuestions = qs.filter(question => question.course === "zly101");
-
-
-  const courses = [
-    {
-      id: 1,
-      name: "chm101",
-      questions: [...chemQuestions]
-    },
-    {
-      id: 2,
-      name: "plb101",
-      questions: [...plbQuestions]
-    },
-    {
-      id: 3,
-      name: "zly101",
-      questions: [...zlyQuestions]
-    },
-  ]
+  const [courses, setCourses] = useState([
+    // {
+    //   id: 1,
+    //   name: "chm101",
+    //   questions: [...chemQuestions]
+    // },
+    // {
+    //   id: 2,
+    //   name: "plb101",
+    //   questions: [...plbQuestions]
+    // },
+    // {
+    //   id: 3,
+    //   name: "zly101",
+    //   questions: [...zlyQuestions]
+    // },
+  ])
 
   // console.log(courses)
 
-  const [timeAllocated, setTimeAllocated] = useState(30);
+  const [timeAllocated, setTimeAllocated] = useState(30 * 60);
   const [timeRemaining, setTimeRemaining] = useState(timeAllocated);
 
   //   this state is to clear the radio inputs when next is clicked, and retain state when previous is clicked
@@ -190,6 +92,7 @@ export const QuizProvider = ({ children }) => {
         timeRemaining,
         setTimeRemaining,
         courses,
+        setCourses,
         selectedCourse,
         setSelectedCourse,
         completedCourses,

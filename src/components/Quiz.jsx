@@ -27,7 +27,7 @@ function Quiz() {
   useEffect(() => {
     let intervalId = setInterval(() => {
       setTimeRemaining(timeRemaining - 1);
-    }, 1000);
+    }, 800);
     return () => clearInterval(intervalId);
   }, [timeRemaining]);
 
@@ -46,7 +46,7 @@ function Quiz() {
 
   //   next question and score increment
   const nextQuestion = () => {
-    // this condition returns the user to the first question when he clicks "next question" while on the last question
+    // this condition returns the user to the first question when user clicks "next question" while on the last question
     if (currentQuestion === Questions.length - 1) {
       setCurrentQuestion(0);
     } else {
@@ -122,7 +122,7 @@ function Quiz() {
           Next Question
         </button>
       </div>
-
+              {/* Navigaton, blue while active, red when unanswered, green when answered */}
       <div className="container">
         {Array.from({ length: Questions.length }, (_, i) => (
           <div

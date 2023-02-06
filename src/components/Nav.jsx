@@ -10,7 +10,7 @@ function Nav() {
         <div className="d-flex justify-content-between container pt-2">
           <p>Name</p>
           
-          {timeRemaining <= timeAllocated /2 && (<p onClick={finishQuiz} className="submit-button"> SUBMIT</p>)}
+          {timeRemaining <= timeAllocated / 4 && (<p onClick={finishQuiz} className="submit-button"> SUBMIT</p>)}
         </div>
     </div>
   )
