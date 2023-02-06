@@ -1,7 +1,9 @@
 import { useContext, useEffect, } from "react";
 import QuizContext from "../Context/QuizContext";
 import "../App.css";
-
+import axios from "axios";
+const url = "https://cbt-mock-api.onrender.com/api/quiz/"
+const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjcyMjMyLCJpYXQiOjE2NzU2Njk1MzIsImp0aSI6IjQ1YzI5MDc0NDgwZjQ1YjE4Y2U5YTVmMjRlMGM4MjQxIiwidXNlcl9pZCI6MSwiZnVsbG5hbWUiOiJDYnQgQWRtaW4iLCJqYW1iX3JlZ19udW0iOiIxOC81NUVIMDAwIn0.z76Q68BxNQSQmfZCV3V0PQjxIaGpRfgt2f8feIXM8lI"
 function StartScreen() {
   const {
     examState,
@@ -14,9 +16,21 @@ function StartScreen() {
     setCurrentQuestion
   } = useContext(QuizContext);
 
-useEffect(() => {
-  setCurrentQuestion(0)
-}, [])
+  useEffect(() => {
+    setCurrentQuestion(0)
+  }, [])
+
+  function fetchQuestions(courseID) {
+    axios.get(url + courseID, { headers: { "Authorization": token } })
+      .then((res) => {
+        setQuestions(res.data)
+        setExamState("quiz");
+      })
+      .catch(err => {
+        alert(err.message)
+      })
+  }
+
   return (
     <div className="Start ">
       <h2 className="text-center my-4">General Instructions</h2>
@@ -74,14 +88,7 @@ useEffect(() => {
                   "You have already completed this course. Please select a different course."
                 );
               } else {
-
-                setQuestions(
-                  courses.find((course) => course.id === selectedCourse)
-                    .questions
-                );
-                setTimeout(() => {
-                  setExamState("quiz");
-                }, 100)
+                fetchQuestions(selectedCourse)
               }
             } else {
               alert("Please select a course");

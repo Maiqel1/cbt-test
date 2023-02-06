@@ -23,9 +23,9 @@ function EndScreen() {
   return (
     <div className="EndScreen">
       <h1>Exam Finished</h1>
-      {/* <h3>{score} / {Questions.length}</h3>
+      <h3>{score} / {Questions.length}</h3>
 
-      <p>{(score / Questions.length) * 100}%</p> */}
+      <p>{(score / Questions.length) * 100}%</p>
 
       <button onClick={restartQuiz}>Go to next course</button>
 
