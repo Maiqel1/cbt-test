@@ -99,7 +99,7 @@ export const QuizProvider = ({ children }) => {
     optionD: "6",
     answer: "B",
   },
-]
+  ]
 
   const [Questions, setQuestions] = useState([]);
 
@@ -144,7 +144,11 @@ export const QuizProvider = ({ children }) => {
       if (window.confirm("Are you sure you want to submit?")) {
         let score = 0;
         for (let i = 0; i < Questions.length; i++) {
-          if (answers[i] === Questions[i].answer) {
+          let ans = Questions[i].option.filter(op => op.answer === true).map(an => an.option)
+          if (answers[i] === undefined) {
+            break;
+          }
+          if (ans.length > 0 && answers[i] === ans[0]) {
             score++;
           }
         }
@@ -154,7 +158,12 @@ export const QuizProvider = ({ children }) => {
     } else {
       let score = 0;
       for (let i = 0; i < Questions.length; i++) {
-        if (answers[i] === Questions[i].answer) {
+        let ans = Questions[i].option.filter(op => op.answer === true).map(an => an.option)
+        if (answers[i] === undefined) {
+          break;
+        }
+        if (ans.length > 0 && answers[i] === ans[0]) {
+          console.log(answers[i], ans)
           score++;
         }
       }
@@ -163,7 +172,7 @@ export const QuizProvider = ({ children }) => {
     }
   };
 
-  
+
   return (
     <QuizContext.Provider
       value={{

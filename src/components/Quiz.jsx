@@ -37,7 +37,7 @@ function Quiz() {
       finishQuiz(false);
     }
   }, [timeRemaining]);
-  
+
 
   // function for navigation
   const handleNavigation = (question) => {
@@ -82,77 +82,32 @@ function Quiz() {
       <div className="question-card container p-5">
         <section className="container mx-auto">
           {Questions[currentQuestion] && (
-            <h1 className="prompt">{Questions[currentQuestion].prompt}</h1>
+            <h1 className="prompt">{Questions[currentQuestion].question}</h1>
           )}
 
           {Questions[currentQuestion] && (
             <div className="options mt-3">
-              <div>
-                <input
-                  type="radio"
-                  name="option"
-                  value="A"
-                  onChange={() => {
-                    setOptionChosen("A");
-                    handleChange(currentQuestion, "A");
-                  }}
-                  checked={answers[currentQuestion] === "A"}
-                />
-                <label htmlFor="optionA">
-                  {Questions[currentQuestion].optionA}
-                </label>
-              </div>
-
-              <div>
-                <input
-                  type="radio"
-                  id="optionB"
-                  name="option"
-                  value="B"
-                  onChange={() => {
-                    setOptionChosen("B");
-                    handleChange(currentQuestion, "B");
-                  }}
-                  checked={answers[currentQuestion] === "B"}
-                />
-                <label htmlFor="optionB">
-                  {Questions[currentQuestion].optionB}
-                </label>
-              </div>
-
-              <div>
-                <input
-                  type="radio"
-                  id="optionC"
-                  name="option"
-                  value="C"
-                  onChange={() => {
-                    setOptionChosen("C");
-                    handleChange(currentQuestion, "C");
-                  }}
-                  checked={answers[currentQuestion] === "C"}
-                />
-                <label htmlFor="optionC">
-                  {Questions[currentQuestion].optionC}
-                </label>
-              </div>
-
-              <div>
-                <input
-                  type="radio"
-                  id="optionD"
-                  name="option"
-                  value="D"
-                  onChange={() => {
-                    setOptionChosen("D");
-                    handleChange(currentQuestion, "D");
-                  }}
-                  checked={answers[currentQuestion] === "D"}
-                />
-                <label htmlFor="optionD">
-                  {Questions[currentQuestion].optionD}
-                </label>
-              </div>
+              {
+                Questions[currentQuestion].option.map((option, ind) => {
+                  return (
+                    <div key={ind}>
+                      <input
+                        type="radio"
+                        name="option"
+                        value={option.option}
+                        onChange={() => {
+                          setOptionChosen(option.option);
+                          handleChange(currentQuestion, option.option);
+                        }}
+                        checked={answers[currentQuestion] === option.option}
+                      />
+                      <label htmlFor="optionA">
+                        {option.option}
+                      </label>
+                    </div>
+                  )
+                })
+              }
             </div>
           )}
         </section>
