@@ -2,9 +2,8 @@ import { useContext, useEffect, } from "react";
 import QuizContext from "../Context/QuizContext";
 import "../App.css";
 import axios from "axios";
-const url = "https://cbt-mock-api.onrender.com/api/quiz/zly-103/"
-const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjQ4OTA5LCJpYXQiOjE2NzU2NDYyMDksImp0aSI6ImNhNTE2N2ZlYzNiMDRlZTA4MDQ2ZDk0OTU1YWJjZWNkIiwidXNlcl9pZCI6MSwiZnVsbG5hbWUiOiJDYnQgQWRtaW4iLCJqYW1iX3JlZ19udW0iOiIxOC81NUVIMDAwIn0.aVjfP2NRHBwGzJkP2r3_yFj7UWTvAspKiU-u5L-bV6c"
-
+const url = "https://cbt-mock-api.onrender.com/api/quiz/"
+const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjcyMjMyLCJpYXQiOjE2NzU2Njk1MzIsImp0aSI6IjQ1YzI5MDc0NDgwZjQ1YjE4Y2U5YTVmMjRlMGM4MjQxIiwidXNlcl9pZCI6MSwiZnVsbG5hbWUiOiJDYnQgQWRtaW4iLCJqYW1iX3JlZ19udW0iOiIxOC81NUVIMDAwIn0.z76Q68BxNQSQmfZCV3V0PQjxIaGpRfgt2f8feIXM8lI"
 function StartScreen() {
   const {
     examState,
@@ -22,9 +21,8 @@ function StartScreen() {
   }, [])
 
   function fetchQuestions(courseID) {
-    axios.get(url, { headers: { "Authorization": token } })
+    axios.get(url + courseID, { headers: { "Authorization": token } })
       .then((res) => {
-        console.log(res.data)
         setQuestions(res.data)
         setExamState("quiz");
       })
