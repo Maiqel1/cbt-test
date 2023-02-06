@@ -3,7 +3,7 @@ import QuizContext from "../Context/QuizContext";
 import "../App.css";
 import axios from "axios";
 const url = "https://cbt-mock-api.onrender.com/api/quiz/"
-const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjgzMzg1LCJpYXQiOjE2NzU2ODA2ODUsImp0aSI6IjYwMmExYjMzZTU3MjRkNTA5OTFmYjhiYTVhY2JiYmZjIiwidXNlcl9pZCI6MSwiZnVsbG5hbWUiOiJDYnQgQWRtaW4iLCJqYW1iX3JlZ19udW0iOiIxOC81NUVIMDAwIn0.SbAn-INPaPihj70IYWLez_-6ttDAv40nQjh9F_LhfOk"
+const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NzAzNTg4LCJpYXQiOjE2NzU3MDA4ODgsImp0aSI6IjkyZTE2YmY5ZjhlYjRhYzk5NTQ2NGNkOWU0ODc1ODVjIiwidXNlcl9pZCI6MSwiZnVsbG5hbWUiOiJDYnQgQWRtaW4iLCJqYW1iX3JlZ19udW0iOiIxOC81NUVIMDAwIn0.pcHg1ssbFMFSegV13kLqqFZoKyg1E0uGK58bXAHK-tc"
 function StartScreen() {
   const {
     examState,

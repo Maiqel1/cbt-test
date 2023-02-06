@@ -1,6 +1,8 @@
 
 import { useState, useContext, useEffect } from "react";
 import QuizContext from "../Context/QuizContext";
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
 // import axios from "axios" 
 
 function Quiz() {
@@ -65,6 +67,16 @@ function Quiz() {
     // const prevAnswer = answers[currentQuestion - 1];
   };
 
+  // React quill variables
+
+  const modules ={
+    toolbar: [
+
+    ],
+  };
+
+  const formats = [];
+
   return (
     <div className="Quiz">
       <div className="d-flex justify-content-between container my-4">
@@ -82,7 +94,8 @@ function Quiz() {
       <div className="question-card container p-5">
         <section className="container mx-auto">
           {Questions[currentQuestion] && (
-            <h1 className="prompt">{Questions[currentQuestion].question}</h1>
+            // <h1 className="prompt"></h1>
+            <ReactQuill  theme="snow" value={Questions[currentQuestion].question} modules={modules} formats={formats} className="my-quill-editor" readOnly/>
           )}
 
           {Questions[currentQuestion] && (
@@ -90,8 +103,9 @@ function Quiz() {
               {
                 Questions[currentQuestion].option.map((option, ind) => {
                   return (
-                    <div key={ind}>
+                    <div key={ind} className="d-flex">
                       <input
+                      className="mt-5"
                         type="radio"
                         name="option"
                         value={option.option}
@@ -101,8 +115,8 @@ function Quiz() {
                         }}
                         checked={answers[currentQuestion] === option.option}
                       />
-                      <label htmlFor="optionA">
-                        {option.option}
+                      <label htmlFor="optionA" className="optionsLabel">
+                        <ReactQuill  theme="snow" value={option.option}  modules={modules} formats={formats} className="my-quill-editor2" readOnly/>
                       </label>
                     </div>
                   )
