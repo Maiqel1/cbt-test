@@ -55,6 +55,9 @@ export const QuizProvider = ({ children }) => {
           }
         }
         setScore(score);
+        const results = JSON.parse(localStorage.getItem("results")) || {}
+        results[selectedCourse] = score
+        localStorage.setItem("results", JSON.stringify(results))
         setExamState("EndScreen");
       }
     } else {
@@ -65,11 +68,13 @@ export const QuizProvider = ({ children }) => {
           break;
         }
         if (ans.length > 0 && answers[i] === ans[0]) {
-          console.log(answers[i], ans)
           score++;
         }
       }
       setScore(score);
+      const results = JSON.parse(localStorage.getItem("results")) || {}
+      results[selectedCourse] = score
+      localStorage.setItem("results", JSON.stringify(results))
       setExamState("EndScreen");
     }
   };
