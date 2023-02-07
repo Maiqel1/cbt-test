@@ -103,7 +103,7 @@ function Quiz() {
               {
                 Questions[currentQuestion].option.map((option, ind) => {
                   return (
-                    <div key={ind} className="d-flex mt-n5 ">
+                    <div key={ind} className="d-flex mt-n5">
                       <input
                       className="mt-5"
                         type="radio"

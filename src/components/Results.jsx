@@ -1,18 +1,12 @@
-// import { useContext } from "react"
-// import QuizContext from "../Context/QuizContext"
+import { useContext, useState } from "react";
 
-// function Results() {
+function Results() {
+  const courseScored = JSON.parse(localStorage.getItem("courseScore"));
+  const [course, useCourse] = useState([courseScored] || {});
 
-//     const {courseScores} = useContext(QuizContext)
-//   return (
-//     <div>
-//       <h2>Results</h2>
-//       {Object.entries(courseScores).map(([course, score]) => (
-//         <div key={course}>
-//           <p>{course}: {score}</p>
-//         </div>
-//       ))}
-//     </div>
-//   )
-// }
-// export default Results
+  return <div>
+    {console.log(course)}
+    <p>{course}</p>
+  </div>;
+}
+export default Results;

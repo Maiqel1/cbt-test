@@ -13,6 +13,7 @@ function StartScreen() {
 
   const {
     examState,
+    score,
     setExamState,
     courses,
     setCourses,
@@ -105,6 +106,7 @@ function StartScreen() {
                     "You have already completed this course. Please select a different course."
                   );
                 } else {
+                  localStorage.setItem("courseScore", JSON.stringify(`${selectedCourse} : ${score}`))
                   fetchQuestions(selectedCourse);
                 }
               } else {
