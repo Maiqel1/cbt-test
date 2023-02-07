@@ -9,7 +9,7 @@ function StartScreen() {
 
   const url = "https://cbt-mock-api.onrender.com/api/quiz/";
   const token = STDtoken;
-  console.log(STDtoken);
+  // console.log(STDtoken);
 
   const {
     examState,
@@ -116,6 +116,7 @@ function StartScreen() {
           </button>
         )}
         {/* {completedCourses.length === 5 && <button>LOGOUT </button>} */}
+        {/* LOGOUT SHOULD: clear local storage,  clear completed couurses, reset scores */}
       </div>
     </div>
   );

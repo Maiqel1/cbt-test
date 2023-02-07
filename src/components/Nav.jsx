@@ -3,9 +3,9 @@
 
   function Nav() {
     const studentData = JSON.parse(localStorage.getItem('student'))
-    const [student, setStudent] = useState(studentData)    
+    const [student, setStudent] = useState(studentData || {})    
 
-    
+
     const {timeAllocated, timeRemaining, finishQuiz} = useContext(QuizContext)
 
     return (
