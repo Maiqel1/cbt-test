@@ -2,9 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import QuizContext from "../Context/QuizContext";
 import "../App.css";
 import axios from "axios";
-const url = "https://cbt-mock-api.onrender.com/api/quiz/"
-const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NzAzNTg4LCJpYXQiOjE2NzU3MDA4ODgsImp0aSI6IjkyZTE2YmY5ZjhlYjRhYzk5NTQ2NGNkOWU0ODc1ODVjIiwidXNlcl9pZCI6MSwiZnVsbG5hbWUiOiJDYnQgQWRtaW4iLCJqYW1iX3JlZ19udW0iOiIxOC81NUVIMDAwIn0.pcHg1ssbFMFSegV13kLqqFZoKyg1E0uGK58bXAHK-tc"
+
 function StartScreen() {
+  const studentToken = JSON.parse(localStorage.getItem("authtoken"));
+  const [STDtoken, setSTDToken] = useState(studentToken);
+
+  const url = "https://cbt-mock-api.onrender.com/api/quiz/";
+  const token = STDtoken;
+  console.log(STDtoken);
+
   const {
     examState,
     setExamState,
@@ -15,29 +21,29 @@ function StartScreen() {
     setTimeAllocated,
     setQuestions,
     setSelectedCourse,
-    setCurrentQuestion
+    setCurrentQuestion,
   } = useContext(QuizContext);
-  
+
   useEffect(() => {
-    setCurrentQuestion(0)
+    setCurrentQuestion(0);
 
-    axios.get("https://cbt-mock-api.onrender.com/api/quiz/all")
-    .then(response => {
-      setCourses(response.data)
-    })
-  }, [])
-
-  
+    axios
+      .get("https://cbt-mock-api.onrender.com/api/quiz/all")
+      .then((response) => {
+        setCourses(response.data);
+      });
+  }, []);
 
   function fetchQuestions(CourseID) {
-    axios.get(url + CourseID, { headers: { "Authorization": token } }) 
+    axios
+      .get(url + CourseID, { headers: { Authorization: token } })
       .then((res) => {
-        setQuestions(res.data)
+        setQuestions(res.data);
         setExamState("quiz");
       })
-      .catch(err => {
-        alert(err.message)
-      })
+      .catch((err) => {
+        alert(err.message);
+      });
   }
 
   return (
@@ -70,7 +76,6 @@ function StartScreen() {
       </div>
 
       <div className=" container d-flex justify-content-center mt-4">
-
         {courses.map((course) => (
           <div className="mx-4" key={course.id}>
             <label htmlFor={course.quiz}>{course.quiz}</label>
@@ -88,25 +93,29 @@ function StartScreen() {
       </div>
 
       <div className="d-flex justify-content-center">
-        <button
-          className="btn btn-primary p-3 mt-5"
-          onClick={() => {
-            if (selectedCourse) {
-              if (completedCourses.includes(selectedCourse)) {
-                alert(
-                  "You have already completed this course. Please select a different course."
-                );
+        {completedCourses.length === 5 ? (
+          <button className="btn btn-primary p-3 mt-5">View Results</button>
+        ) : (
+          <button
+            className="btn btn-primary p-3 mt-5"
+            onClick={() => {
+              if (selectedCourse) {
+                if (completedCourses.includes(selectedCourse)) {
+                  alert(
+                    "You have already completed this course. Please select a different course."
+                  );
+                } else {
+                  fetchQuestions(selectedCourse);
+                }
               } else {
-                fetchQuestions(selectedCourse)
-                {console.log(selectedCourse)}
+                alert("Please select a course");
               }
-            } else {
-              alert("Please select a course");
-            }
-          }}
-        >
-          Start Exam
-        </button>
+            }}
+          >
+            Start Exam
+          </button>
+        )}
+        {/* {completedCourses.length === 5 && <button>LOGOUT </button>} */}
       </div>
     </div>
   );

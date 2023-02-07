@@ -30,7 +30,7 @@ export const QuizProvider = ({ children }) => {
 
   // console.log(courses)
 
-  const [timeAllocated, setTimeAllocated] = useState(30 * 60);
+  const [timeAllocated, setTimeAllocated] = useState(30);
   const [timeRemaining, setTimeRemaining] = useState(timeAllocated);
 
   //   this state is to clear the radio inputs when next is clicked, and retain state when previous is clicked
