@@ -1,12 +1,26 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function Results() {
-  const courseScored = JSON.parse(localStorage.getItem("courseScore"));
-  const [course, useCourse] = useState([courseScored] || {});
+  const [results, setResults] = useState({})
 
-  return <div>
-    {console.log(course)}
-    <p>{course}</p>
-  </div>;
+  useEffect(() => {
+    setResults(JSON.parse(localStorage.getItem("results")) || {})
+  }, [])
+
+  return (
+    <div>
+      {
+        Object.entries(results).map((entry) => {
+          return (
+            <div style={{ display: "flex" }}>
+              <p>{entry[0]}</p>
+              :
+              <p>{entry[1]}</p>
+            </div>
+          )
+        })
+      }
+    </div>
+  )
 }
 export default Results;
