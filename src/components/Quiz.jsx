@@ -67,6 +67,16 @@ function Quiz() {
     // const prevAnswer = answers[currentQuestion - 1];
   };
 
+  // N and P keys for navigation
+  const handleKeyDown = (event) => {
+      if (event.key === "n") {
+        nextQuestion()
+      } else if(event.key === "p") {
+        previousQuestion()
+      }
+    }
+
+
   // React quill variables
 
   const modules ={
@@ -79,6 +89,7 @@ function Quiz() {
 
   return (
     <div className="Quiz">
+      {/* <div onKeyDown={handleKeyDown} tabIndex={-1}>Helo</div> */}
       <div className="d-flex justify-content-between container my-4">
         <p>
           Question : {currentQuestion + 1} {"/"} {Questions.length}
@@ -128,11 +139,11 @@ function Quiz() {
       </div>
 
       <div className="nextPrev mt-5 d-flex justify-content-between container">
-        <button className="btn btn-primary p-3" onClick={previousQuestion}>
+        <button className="btn btn-primary p-3" onClick={previousQuestion} onKeyDown={handleKeyDown}>
           Previous Question
         </button>
 
-        <button className="btn btn-primary p-3  " onClick={nextQuestion}>
+        <button className="btn btn-primary p-3  " onClick={nextQuestion} onKeyDown={handleKeyDown}>
           Next Question
         </button>
       </div>

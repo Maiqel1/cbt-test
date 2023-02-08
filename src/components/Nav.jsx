@@ -6,7 +6,7 @@
     const [student, setStudent] = useState(studentData || {})    
 
 
-    const {timeAllocated, timeRemaining, finishQuiz} = useContext(QuizContext)
+    const {timeAllocated, timeRemaining, finishQuiz,} = useContext(QuizContext)
 
     return (
       <div className="navBar">

@@ -8,7 +8,7 @@ import EndScreen from "./EndScreen";
 // import "./App.css";
 
 function QuizLanding() {
-  const { examState, setExamState } = useContext(QuizContext);
+  const { examState, setExamState,} = useContext(QuizContext);
   return (
     <div>
       {examState === "menu" && <StartScreen />}

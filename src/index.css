@@ -91,7 +91,7 @@
 
 .instructions-card {
   width: 766px;
-  height: 293px;
+  height: 100%;
   background: rgba(11, 95, 255, 0.1);
   border-radius: 8px;
 }
@@ -187,48 +187,26 @@
   font-size: 14px;
   line-height: 150%;
 }
-/* style = {{backgroundColor : answers[i + 1] ? 'green' : 'red', color: 'white', padding: '10px', cursor: 'pointer', display: 'inline-block'}} */
 
-/* .Menu,
-  .Quiz,
-  .EndScreen
-  {
-    width: fit-content;
-    padding: 0px 20px;
-    height: 500px;
-    border-radius: 10px;
-    background-color: lightseagreen;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+/* RESULTS PAGE STYLING */
 
-  .Menu button, .Quiz button, .EndScreen button{
-    width: 300px;
-    height: 50px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-  }
+.results-header {
+width: 418px;
+height: 80px;
+background: #20AE48;
+border-radius: 60px;
+}
 
-  .Menu, .Quiz, .EndScreen {
-    color: white;
-  }
+.results-header2{
+  width: 367.88px;
+  height: 81.77px;
+ background: rgba(11, 95, 255, 0.1);
+  border-radius: 60px;
+}
 
-  .options{
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nextPrev{
-    margin-top: 20px;
-    display: flex;
-  justify-content: space-between;
-  } */
+.results-card{
+  width: 632px;
+height: 100%;
+background: rgba(11, 95, 255, 0.1);
+border-radius: 64px;
+}

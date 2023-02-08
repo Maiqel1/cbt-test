@@ -10,23 +10,7 @@ export const QuizProvider = ({ children }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const [Questions, setQuestions] = useState([]);
-  const [courses, setCourses] = useState([
-    // {
-    //   id: 1,
-    //   name: "chm101",
-    //   questions: [...chemQuestions]
-    // },
-    // {
-    //   id: 2,
-    //   name: "plb101",
-    //   questions: [...plbQuestions]
-    // },
-    // {
-    //   id: 3,
-    //   name: "zly101",
-    //   questions: [...zlyQuestions]
-    // },
-  ])
+  const [courses, setCourses] = useState([])
 
   // console.log(courses)
 
@@ -55,8 +39,9 @@ export const QuizProvider = ({ children }) => {
           }
         }
         setScore(score);
+        // This stores the scores for each course in local storage to be displayed later
         const results = JSON.parse(localStorage.getItem("results")) || {}
-        results[selectedCourse] = score
+        results[selectedCourse] = Math.round(score / Questions.length * 100)  
         localStorage.setItem("results", JSON.stringify(results))
         setExamState("EndScreen");
       }
@@ -73,7 +58,7 @@ export const QuizProvider = ({ children }) => {
       }
       setScore(score);
       const results = JSON.parse(localStorage.getItem("results")) || {}
-      results[selectedCourse] = score
+      results[selectedCourse] = Math.round(score / Questions.length * 100)  
       localStorage.setItem("results", JSON.stringify(results))
       setExamState("EndScreen");
     }

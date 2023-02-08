@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import QuizContext from "../Context/QuizContext";
 import "../App.css";
+import {Link} from "react-router-dom";
 import axios from "axios";
 
 function StartScreen() {
@@ -27,7 +28,6 @@ function StartScreen() {
 
   useEffect(() => {
     setCurrentQuestion(0);
-
     axios
       .get("https://cbt-mock-api.onrender.com/api/quiz/all")
       .then((response) => {
@@ -39,7 +39,7 @@ function StartScreen() {
     axios
       .get(url + CourseID, { headers: { Authorization: token } })
       .then((res) => {
-        setQuestions(res.data);
+        setQuestions(res.data.slice(0, 30));
         setExamState("quiz");
       })
       .catch((err) => {
@@ -51,28 +51,51 @@ function StartScreen() {
     <div className="Start ">
       <h2 className="text-center my-4">General Instructions</h2>
 
-      <div className=" mx-auto instructions-card">
+      <div className=" mx-auto instructions-card pb-2">
         <section className="container pt-4">
-          <p className="mx-auto text-start">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam consequat sunt nostrud amet.
-          </p>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam consequat sunt nostrud amet.
-          </p>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam consequat sunt nostrud amet.
-          </p>
-          <p>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam consequat sunt nostrud amet.
-          </p>
+          <ul>
+            <li>
+              <p>
+              Each course has  30 questions, to be attempted in 20mins. 
+              </p>
+            </li>
+            
+            <li>
+              <p>
+              Exams are to be done one after the other; Select, attempt, and submit each one until you’ve attempted all 5 courses. 
+              </p>
+            </li>
+
+            <li>
+              <p>
+              Results will only show after all exams have been attempted. 
+              </p>
+            </li>
+
+            <li>
+              <p>
+              You can use the keyboard hotkeys “N” and “P” to navigate to the next and previous questions respectively for faster navigation.
+              </p>
+            </li>
+
+            <li>
+              <p>
+              An exam automatically gets submitted  when the time allotted has been exhausted. 
+              </p>
+            </li>
+
+            <li>
+              <p>
+              You can view your results after attempting all 5 courses. 
+              </p>
+            </li>
+
+            <li>
+              <p className="fw-bold">
+              For no reason should you refresh  the exam page at any time (very important). 
+              </p>
+            </li>
+          </ul>
         </section>
       </div>
 
@@ -95,7 +118,9 @@ function StartScreen() {
 
       <div className="d-flex justify-content-center">
         {completedCourses.length === 5 ? (
-          <button className="btn btn-primary p-3 mt-5">View Results</button>
+          <Link to="/results">
+              <button className="btn btn-primary p-3 mt-5">View Results</button>
+          </Link>
         ) : (
           <button
             className="btn btn-primary p-3 mt-5"
