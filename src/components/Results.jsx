@@ -47,7 +47,7 @@ function Results() {
           <section>
           {Object.entries(results).map((entry) => {
         return (
-            <div className="d-inline-block ms-5">
+            <div className="d-inline-block ms-5 mt-5 pt-2">
             
             <p>{entry[0]}</p>
             <p className={entry[1] <= 50 ? "text-danger" : "text-success"}>
