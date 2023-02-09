@@ -39,7 +39,7 @@ function StartScreen() {
     axios
       .get(url + CourseID, { headers: { Authorization: token } })
       .then((res) => {
-        setQuestions(res.data);
+        setQuestions(res.data.splice(0, 30));
         setExamState("quiz");
       })
       .catch((err) => {
