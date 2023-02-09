@@ -10,8 +10,8 @@ import Results from "./components/Results";
 function App() {
   return (
     <QuizProvider>
-      <Nav/>
       <Router>
+      <Nav/>
         <Routes>
           <Route exact path="/" element={<Home/>}>
 

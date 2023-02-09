@@ -33,12 +33,12 @@ function Results() {
       </div>
 
       <div className="d-flex justify-content-center">
-        <div className="results-card">
+        <div className="results-card pb-5">
           
               <h4 className=" text-center mt-4">Your Score</h4>
           
           <div className="text-center ">
-          <img src={Trophy} alt="" />
+          <img src={Trophy} alt="" className="mt-4 mb-4" />
             <h2 className={average <= 50 ? "text-danger" : "text-success"}>
               {average.toFixed(2)}%
             </h2>
@@ -47,7 +47,7 @@ function Results() {
           <section>
           {Object.entries(results).map((entry) => {
         return (
-            <div className="d-inline-block ms-5 mt-5 pt-2">
+            <div className="d-inline-block ms-4 mt-5 pt-2 individual-result">
             
             <p>{entry[0]}</p>
             <p className={entry[1] <= 50 ? "text-danger" : "text-success"}>

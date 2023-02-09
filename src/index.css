@@ -188,6 +188,15 @@
   line-height: 150%;
 }
 
+.logout-button {
+  cursor: pointer;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+}
+
 /* RESULTS PAGE STYLING */
 
 .results-header {
@@ -209,4 +218,25 @@ border-radius: 60px;
 height: 100%;
 background: rgba(11, 95, 255, 0.1);
 border-radius: 64px;
+}
+
+.individual-result{
+  box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 12px;
+gap: 8px;
+
+width: 93px;
+height: 84px;
+
+background: #E7EFFF;
+border: 0.5px solid #0B5FFF;
+box-shadow: -4px -2px 8px rgba(11, 95, 255, 0.1), 0px 4px 10px rgba(11, 95, 255, 0.1);
+border-radius: 8px;
+
 }
