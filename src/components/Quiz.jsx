@@ -12,11 +12,11 @@ function Quiz() {
     setAnswers,
     handleChange,
     finishQuiz,
-    timeAllocated,
     timeRemaining,
     setTimeRemaining,
     currentQuestion,
     setCurrentQuestion,
+    selectedCourse,
   } = useContext(QuizContext);
   // setting question and answer state
   const [optionChosen, setOptionChosen] = useState("");
@@ -24,7 +24,6 @@ function Quiz() {
   // console.log(Questions, currentQuestion)
 
   // const [timeLeft, setTimeLeft] = useState(100);
-
   useEffect(() => {
     let intervalId = setInterval(() => {
       setTimeRemaining(timeRemaining - 1);
@@ -73,6 +72,14 @@ function Quiz() {
       previousQuestion();
     }
   };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+  
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   // React quill variables
 

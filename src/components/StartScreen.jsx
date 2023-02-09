@@ -20,7 +20,6 @@ function StartScreen() {
     setCourses,
     selectedCourse,
     completedCourses,
-    setTimeAllocated,
     setQuestions,
     setSelectedCourse,
     setCurrentQuestion,
@@ -39,13 +38,13 @@ function StartScreen() {
     axios
       .get(url + CourseID, { headers: { Authorization: token } })
       .then((res) => {
-        setQuestions(res.data);
+        setQuestions(res.data.splice(0, 30));
         setExamState("quiz");
       })
       .catch((err) => {
         alert(err.message);
       });
-  }
+}
 
   return (
     <div className="Start ">
@@ -109,7 +108,9 @@ function StartScreen() {
               id={course.name}
               value={course.id}
               checked={course.slug === selectedCourse}
-              onChange={() => setSelectedCourse(course.slug)}
+              onChange={() => {
+                setSelectedCourse(course.slug)
+              }}
               disabled={completedCourses.includes(course.slug)}
             />
           </div>
