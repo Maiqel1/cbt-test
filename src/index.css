@@ -275,7 +275,12 @@ background: #20AE48;
 border-radius: 12px;
 }
 
-.endscreen-card button:hover {
+.endscreen-card button:hover  {
 background: #20AE48;
   
+}
+
+.endscreen-card button:focus{
+background: #20AE48;
+
 }
