@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import QuizContext from "../Context/QuizContext";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import ConfirmModal from "./ConfirmModal";
 // import axios from "axios"
 
 function Quiz() {
@@ -17,6 +18,9 @@ function Quiz() {
     currentQuestion,
     setCurrentQuestion,
     selectedCourse,
+    showModal,
+    handleClose,
+    handleConfirm
   } = useContext(QuizContext);
   // setting question and answer state
   const [optionChosen, setOptionChosen] = useState("");
@@ -103,6 +107,7 @@ function Quiz() {
       </div>
 
       <div></div>
+      <ConfirmModal showModal={showModal} onClose={handleClose} onConfirm={handleConfirm} />
 
       <div className="question-card container p-5">
         <section className="container mx-auto">

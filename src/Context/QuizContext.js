@@ -65,6 +65,20 @@ export const QuizProvider = ({ children }) => {
     }
   };
 
+  const [showModal, setShowModal] = useState(false);
+  
+  const handleFinish = () => {
+    setShowModal(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+  const handleConfirm = () => {
+    finishQuiz(false);
+    setShowModal(false);
+  };
 
   return (
     <QuizContext.Provider
@@ -75,6 +89,10 @@ export const QuizProvider = ({ children }) => {
         setScore,
         Questions,
         finishQuiz,
+        showModal,
+        handleClose,
+        handleConfirm,
+        handleFinish,
         answers,
         setAnswers,
         handleChange,

@@ -20,14 +20,14 @@
     }
 
 
-    const {timeAllocated, timeRemaining, finishQuiz, completedCourses} = useContext(QuizContext)
+    const {timeAllocated, timeRemaining, handleFinish, completedCourses} = useContext(QuizContext)
 
     return (
       <div className="navBar">
           <div className="d-flex justify-content-between container pt-2">
             {student.fullname}
             
-            {timeRemaining <= timeAllocated / 1.3 &&  location.pathname ==="/quiz" ? (<p onClick={finishQuiz} className="submit-button"> SUBMIT</p>) : location.pathname === "/results" || completedCourses.length ===  5 ? (<p onClick={logOut} className="logout-button">LOGOUT</p>): <p></p>}
+            {timeRemaining <= timeAllocated / 1.3 &&  location.pathname ==="/quiz" ? (<p onClick={handleFinish} className="submit-button"> SUBMIT</p>) : location.pathname === "/results" || completedCourses.length ===  5 ? (<p onClick={logOut} className="logout-button">LOGOUT</p>): <p></p>}
             
           </div>
       </div>

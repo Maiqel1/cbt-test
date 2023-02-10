@@ -16,13 +16,16 @@ color: red !important;
 .my-quill-editor2 .ql-container {
   border: none !important;
 }
+.my-quill-editor2{
+  cursor: pointer;
+
+}
 .ql-toolbar.ql-snow {
   border: none !important;
 }
 
 .optionsLabel{
   line-height: 20px !important;
-  cursor: pointer;
 }
 
 .navBar {
@@ -247,3 +250,10 @@ border-radius: 8px;
 
 }
 
+.submit-modal button {
+  width: 156px;
+height: 62px;
+
+background: #D43434;
+border-radius: 12px;
+}
