@@ -274,3 +274,8 @@ text-transform: uppercase;
 background: #20AE48;
 border-radius: 12px;
 }
+
+.endscreen-card button:hover {
+background: #20AE48;
+  
+}
