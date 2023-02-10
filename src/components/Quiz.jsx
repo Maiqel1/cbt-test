@@ -91,7 +91,7 @@ function Quiz() {
     toolbar: [],
   };
 
-  const formats = [];
+  const formats = ['underline'];
 
   return (
     <div className="Quiz">
