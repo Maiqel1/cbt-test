@@ -154,6 +154,7 @@ function Quiz() {
                 return (
                   <div key={ind} className="d-flex mt-n5">
                     <input
+                    id={option.id}
                       className="mt-5"
                       type="radio"
                       name="option"
@@ -164,7 +165,7 @@ function Quiz() {
                       }}
                       checked={answers[currentQuestion] === option.option}
                     />
-                    <label htmlFor="optionA" className="optionsLabel">
+                    <label htmlFor={option.id} className="optionsLabel">
                       <ReactQuill
                         theme="snow"
                         value={option.option}

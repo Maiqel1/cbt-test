@@ -116,6 +116,7 @@ function StartScreen() {
                 setTimeRemaining(course.duration * 60);
               }}
               disabled={completedCourses.includes(course.slug)}
+              className={completedCourses.includes(course.slug) ? 'disabledRadio' : ''}
             />
           </div>
         ))}
