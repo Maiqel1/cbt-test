@@ -30,12 +30,12 @@ function Nav() {
 
         {timeRemaining <= timeAllocated / 1.3 &&
         location.pathname === "/quiz" ? (
-          <button onClick={handleFinish} className="btn submit-button">
+          <button onClick={handleFinish} className="text-white submit-button">
             SUBMIT
           </button>
         ) : location.pathname === "/results" ||
           completedCourses.length === 5 ? (
-          <button onClick={logOut} className="btn logout-button">
+          <button onClick={logOut} className="text-white logout-button">
             LOGOUT
           </button>
         ) : (
