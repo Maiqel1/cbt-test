@@ -162,8 +162,11 @@ function StartScreen() {
                 setQuestions(
                   courses
                     .find((course) => course.id === selectedCourse)
-                    .questions.splice(0, 30)
+                    .questions
+                    .slice(0, 30)
+                    .sort(() => Math.random() - 0.5)
                 );
+                
                 setTimeout(() => {
                   setExamState("quiz");
                 }, 100);
