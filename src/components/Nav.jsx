@@ -28,7 +28,7 @@ function Nav() {
       <div className="d-flex justify-content-between container pt-2">
         {student.fullname}
 
-        {timeRemaining <= timeAllocated / 1.3 &&
+        {
         location.pathname === "/quiz" ? (
           <button onClick={handleFinish} className="btn btn-md btn-danger submit-button">
             SUBMIT
