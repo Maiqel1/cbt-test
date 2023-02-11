@@ -8784,7 +8784,7 @@ export const QuizProvider = ({ children }) => {
         setScore(score);
         // This stores the scores for each course in local storage to be displayed later
         const results = JSON.parse(localStorage.getItem("results")) || {}
-        results[selectedCourse] = Math.round(score / Questions.length * 100)  
+        results[courses[selectedCourse - 1].quiz] = Math.round(score / Questions.length * 100)  
         localStorage.setItem("results", JSON.stringify(results))
         setExamState("EndScreen");
       }
@@ -8801,7 +8801,7 @@ export const QuizProvider = ({ children }) => {
       }
       setScore(score);
       const results = JSON.parse(localStorage.getItem("results")) || {}
-      results[selectedCourse] = Math.round(score / Questions.length * 100)  
+      results[courses[selectedCourse - 1].quiz] = Math.round(score / Questions.length * 100)  
       localStorage.setItem("results", JSON.stringify(results))
       setExamState("EndScreen");
     }
