@@ -201,6 +201,10 @@ background: #d43434;
 
 }
 
+.submit-button:hover{
+    background: #d43434; 
+  }
+
 .logout-button {
   cursor: pointer;
   font-family: "IBM Plex Sans";
@@ -213,6 +217,12 @@ background: #d43434;
 
 
 }
+
+.logout-button:hover{
+  background: #d43434;
+  }
+
+
 
 /* RESULTS PAGE STYLING */
 
