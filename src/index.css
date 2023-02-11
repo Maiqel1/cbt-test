@@ -191,20 +191,38 @@ color: red !important;
 .submit-button {
   cursor: pointer;
   font-family: "IBM Plex Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 150%;
+  width: 85px;
+
+height : 45px;
+
+background: #d43434;
+
+  
+
 }
+
+.submit-button:hover{
+    background: #d43434; 
+  }
 
 .logout-button {
   cursor: pointer;
   font-family: "IBM Plex Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 150%;
+  width: 85px;
+
+height : 45px;
+
+background: #d43434;
+
+
+
 }
+
+.logout-button:hover{
+  background: #d43434;
+  }
+
+
 
 /* RESULTS PAGE STYLING */
 

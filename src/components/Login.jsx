@@ -50,6 +50,7 @@ function Login() {
 
                 setTimeout(() => {
                   navigate("/quiz");
+                  window.location.reload(false)
                 }, 2000);
               }
             });
