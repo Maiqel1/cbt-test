@@ -31,24 +31,24 @@ function StartScreen() {
 
   useEffect(() => {
     setCurrentQuestion(0);
-    // axios
-    //   .get("https://cbt-mock-api.onrender.com/api/quiz/all")
-    //   .then((response) => {
-    //     setCourses(response.data);
-    //   });
+    axios
+      .get("https://cbt-mock-api.onrender.com/api/quiz/all")
+      .then((response) => {
+        setCourses(response.data);
+      });
   }, []);
 
-  // function fetchQuestions(CourseID) {
-  //   axios
-  //     .get(url + CourseID, { headers: { Authorization: token } })
-  //     .then((res) => {
-  //       setQuestions(res.data.splice(0, 30));
-  //       setExamState("quiz");
-  //     })
-  //     .catch((err) => {
-  //       alert(err.message);
-  //     });
-  // }
+  function fetchQuestions(CourseID) {
+    axios
+      .get(url + CourseID, { headers: { Authorization: token } })
+      .then((res) => {
+        setQuestions(res.data.splice(0, 30));
+        setExamState("quiz");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  }
 
   return (
     <div className="Start ">
@@ -101,7 +101,7 @@ function StartScreen() {
       </div>
 
       <div className=" container d-flex justify-content-center mt-4">
-        {/* {courses.map((course) => (
+      {courses.map((course) => (
           <div className="mx-4" key={course.id}>
             <label htmlFor={course.quiz}>{course.quiz}</label>
             <input
@@ -109,12 +109,9 @@ function StartScreen() {
               type="radio"
               id={course.name}
               value={course.id}
-              checked={course.quiz   === selectedCourse}
+              checked={course.slug === selectedCourse}
               onChange={() => {
-                setQuestions(
-                  courses.find((course) => course.quiz === selectedCourse)
-                    .questions
-                );
+                setSelectedCourse(course.slug);
                 setTimeAllocated(course.duration * 60);
                 setTimeRemaining(course.duration * 60);
               }}
@@ -122,9 +119,9 @@ function StartScreen() {
               className={completedCourses.includes(course.slug) ? 'disabledRadio' : ''}
             />
           </div>
-        ))} */}
+        ))}
 
-        {courses.map((course) => (
+        {/* {courses.map((course) => (
           <div className="mx-4" key={course.id}>
             <label htmlFor={course.quiz}>{course.quiz}</label>
             <input
@@ -141,10 +138,12 @@ function StartScreen() {
               disabled={completedCourses.includes(course.id)}
             />
           </div>
-        ))}
+        ))} */}
       </div>
 
-      <div className="d-flex justify-content-center">
+      {/* LOCAL STORAGE CODE */}
+
+      {/* <div className="d-flex justify-content-center">
       {completedCourses.length === 5 ? (
           <Link to="/results">
             <button className="btn btn-primary p-3 mt-5">View Results</button>
@@ -178,9 +177,9 @@ function StartScreen() {
         >
           Start Exam
         </button>}
-      </div>
+      </div> */}
 
-      {/* <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center">
         {completedCourses.length === 5 ? (
           <Link to="/results">
             <button className="btn btn-primary p-3 mt-5">View Results</button>
@@ -196,8 +195,8 @@ function StartScreen() {
                   );
                 } else {
                   setQuestions(
-                    courses.find((course) => course.id === selectedCourse)
-                      .questions
+                    fetchQuestions(selectedCourse)
+                      
                   );
                 }
               } else {
@@ -208,9 +207,8 @@ function StartScreen() {
             Start Exam
           </button>
         )}
-        {completedCourses.length === 5 && <button>LOGOUT </button>}
-        LOGOUT SHOULD: clear local storage,  clear completed couurses, reset scores
-      </div> */}
+        {/* LOGOUT SHOULD: clear local storage,  clear completed couurses, reset scores */}
+      </div>
     </div>
   );
 }
